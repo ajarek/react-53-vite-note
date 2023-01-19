@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 :root {
+  --color-black:#000;
   --color-bg-dark: #3a3a3a;
   --color-bg-black: #111111;
   --color-white: #fefefe;
-  --color-primary: #7634d8;
+  --color-primary: #ff3de9;
   --color-danger: rgb(249, 84, 84);
+  --color-yellow:#c0fc40;
+  --color-blue:#3ec1fe;
+  --color-green:#03e21d;
 }
 * {
   margin: 0;
@@ -15,7 +19,7 @@
   text-decoration: none;
   box-sizing: border-box;
 }
-body{
+body {
   height: 100vh;
   display: flex;
   align-items: center;
@@ -23,24 +27,99 @@ body{
   font-family: 'Montserrat', sans-serif;
   background: #ccc;
 }
-.App{
+.App {
   background: var(--color-bg-black);
   height: 36rem;
   width: 18rem;
   margin: 0 auto;
   border-radius: 7px;
-  padding: 2rem 1.6rem;
-  /* overflow-y: scroll; */
+  padding: 1rem;
+  overflow-y: scroll;
   position: relative;
   color: var(--color-white);
 }
-.header{
+.header {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
-.header .icons{
+.header .icons {
   width: 25%;
   display: flex;
   justify-content: space-between;
 }
+.note-id,
+.notes-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+}
+.icon-wrapper,
+.notes-header-icon {
+  text-decoration: none;
+  color: var(--color-white);
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color: var(--color-bg-dark);
+}
+.notes-header-input{
+  width: 120px;
+}
+.notes-header-input input{
+width: 100%;
+height: 20px;
+padding: 0.5rem;
+background-color: transparent;
+color: var(--color-white);
+border:none ;
+border-bottom: 1px dashed  var(--color-white);
+}
+.notes-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+.card-note {
+  
+  background: var(--color-primary);
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  
+  cursor: pointer;
+  transition: all 300ms ease;
+  color: var(--color-bg-black);
+  border-radius: 5px;
+}
+.card-note:hover {
+  opacity: 0.9;
+}
+.card-body:nth-child(2) {
+  background-color: var(--color-green);
+}
+.card-note:nth-child(3) {
+  grid-column: 1/3;
+  background-color: var(--color-blue);
+}
+
+.card-note:nth-child(4) {
+  grid-row: 3/5;
+  background-color: var(--color-yellow);
+}
+.card-note:nth-child(5) {
+  background-color: var(--color-green);
+}
+.card-note:nth-child(7) {
+  grid-column: 1/3;
+  background-color: var(--color-danger);
+} 
+
+ .card-note p {
+  font-size: 0.8rem;
+} 
