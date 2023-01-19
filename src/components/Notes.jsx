@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { AppContext } from '../App'
-import { GoSearch } from 'react-icons/go'
+import { GoSearch, GoPlus } from 'react-icons/go'
 import { useNavigate } from "react-router-dom";
 import Card from './Card'
 
 const Notes = () => {
   const {notes, setNotes}  = useContext(AppContext)
+  const [search, setSearch]=useState('')
   const navigate = useNavigate();
   useEffect(() => {
     const getData = async () => {
@@ -32,6 +33,8 @@ const Notes = () => {
             type='search'
             name=''
             id=''
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
           />
         </div>
         <div className='notes-header-icon'>
@@ -39,8 +42,9 @@ const Notes = () => {
         </div>
       </div>
       <div className='notes-body'>
-        {notes?.map((note) => {
+        {notes?.filter(el =>el.title.toUpperCase().includes(search.toUpperCase())).map((note) => {
           return (
+            
             <Card
             displayNoteId={displayNoteId}
               newClass={'card-note'}
@@ -56,7 +60,9 @@ const Notes = () => {
             />
           )
         })}
+
       </div>
+      <div className="btn-add"><GoPlus/></div>
     </div>
   )
 }
