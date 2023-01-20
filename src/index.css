@@ -141,6 +141,54 @@ border-bottom: 1px dashed  var(--color-white);
   align-items: center;
   font-size: 1.5rem;
   cursor: pointer;
-  border: none;
+  border: 0;
   box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+  color: var(--color-white);
+  transition: all 0.3s ease-in-out;
+}
+.btn-add:hover{
+background-color: var(--color-bg-black);
+transform: scale(1.1);
+}
+
+.form {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+.form input,.form textarea {
+  width: 100%;
+  height: 48px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 0 8px;
+  border: 1px solid #bdbdbd;
+  margin-bottom: 1rem;
+  font-family: 'Montserrat', sans-serif;
+}
+.form textarea{
+  height: 200px;
+  padding: 1rem 0.5rem;
+ 
+}
+.form input[type='submit'] {
+  background: var(--color-green);
+  height: 38px;
+  font-weight: 600;
+  color: var(--color-black);
+  cursor: pointer;
+  border: 0;
+  margin-top: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+.form input[type='submit']:hover{
+ background-color: #04b218;
+ font-size: 1.2rem;
+}
+.form p {
+  color: red;
 }

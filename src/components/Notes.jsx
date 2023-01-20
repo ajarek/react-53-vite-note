@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { AppContext } from '../App'
 import { GoSearch, GoPlus } from 'react-icons/go'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Card from './Card'
 
 const Notes = () => {
@@ -10,12 +10,8 @@ const Notes = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const getData = async () => {
-      const res = await fetch('./data.json')
-
-      if (!res.ok) {
-        throw new Error(`HTTP error! status: ${res.status}`)
-      }
-      setNotes(await res.json())
+      var notes =await JSON.parse(localStorage.getItem("notes") || "[]");
+      setNotes(notes)
     }
     getData()
   }, [])
@@ -62,7 +58,7 @@ const Notes = () => {
         })}
 
       </div>
-      <div className="btn-add"><GoPlus/></div>
+      <Link className={'link'} to={'/add-note'} className="btn-add"><GoPlus/></Link>
     </div>
   )
 }

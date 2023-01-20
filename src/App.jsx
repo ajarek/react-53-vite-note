@@ -2,8 +2,9 @@ import { useState, createContext } from 'react'
 import Header from './components/Header'
 import Notes from './components/Notes'
 import NoteId from './components/NoteId'
+import AddNote from './components/AddNote'
 import {Routes, Route} from "react-router-dom";
-export const AppContext = createContext()
+export  const AppContext = createContext()
 
 function App() {
   const [notes, setNotes] = useState([])
@@ -21,6 +22,10 @@ function App() {
             element={<NoteId />}
           />
           </Route>
+          <Route
+          path='/add-note'
+          element={<AddNote />}
+        />
   </Routes>
   </AppContext.Provider>
   </div>
