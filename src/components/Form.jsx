@@ -1,11 +1,13 @@
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-
+import React, { useEffect, useState, useContext } from 'react'
+import { AppContext } from '../App'
 
 export const Form = (props) => {
- const { onSubmit, label, ValueTitle, ValueText } = props
- 
+ const { onSubmit, label } = props
+ const {ValueTitle,ValueText}= useContext(AppContext)
+
   const schema = yup.object().shape({
     title:yup.string().required() ,
    text:yup.string().required() ,

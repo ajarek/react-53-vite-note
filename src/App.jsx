@@ -8,8 +8,10 @@ export  const AppContext = createContext()
 
 function App() {
   const [notes, setNotes] = useState([])
+  const [ValueText, setValueText] = useState('')
+  const [ValueTitle, setValueTitle] = useState('')
   return <div className='App'>
-    <AppContext.Provider value={{notes, setNotes}}>
+    <AppContext.Provider value={{notes, setNotes, ValueText, setValueText,ValueTitle, setValueTitle }}>
     <Header/>
     <Routes>
         <Route

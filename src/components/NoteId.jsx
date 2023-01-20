@@ -2,13 +2,29 @@ import React, { useEffect, useState, useContext } from 'react'
 import { AppContext } from '../App'
 import { IoIosArrowBack } from 'react-icons/io'
 import { FiEdit } from 'react-icons/fi'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 const NoteId = () => {
+  const navigate = useNavigate()
   const { id } = useParams()
-  const { notes, setNotes } = useContext(AppContext)
+  const {
+    notes,
+    setNotes,
+    ValueText,
+    setValueText,
+    ValueTitle,
+    setValueTitle,
+  } = useContext(AppContext)
 
   const currentNote = notes?.find((note) => note.id == id)
   const objOfNotes = { ...currentNote }
+
+  const editNote = () => {
+    navigate('/add-note')
+    setValueText(objOfNotes.text)
+    setValueTitle(objOfNotes.title)
+    const newNotes = notes.filter((note) => note.id != id)
+    localStorage.setItem('notes', JSON.stringify(newNotes))
+  }
 
   return (
     <div className='note-id'>
@@ -19,9 +35,12 @@ const NoteId = () => {
         >
           <IoIosArrowBack />
         </Link>
-        <Link className='icon-wrapper'>
+        <div
+          onClick={editNote}
+          className='icon-wrapper'
+        >
           <FiEdit />
-        </Link>
+        </div>
       </div>
       <div className='noteId-wrapper'>
         <div
