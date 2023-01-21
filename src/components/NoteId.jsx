@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import { AppContext } from '../App'
 import { IoIosArrowBack } from 'react-icons/io'
 import { FiEdit } from 'react-icons/fi'
@@ -7,15 +7,7 @@ import { Link, useParams, useNavigate } from 'react-router-dom'
 const NoteId = () => {
   const navigate = useNavigate()
   const { id } = useParams()
-  const {
-    notes,
-    setNotes,
-    ValueText,
-    setValueText,
-    ValueTitle,
-    setValueTitle,
-  } = useContext(AppContext)
-
+  const { notes, setValueText, setValueTitle } = useContext(AppContext)
   const currentNote = notes?.find((note) => note.id == id)
   const objOfNotes = { ...currentNote }
 
@@ -41,19 +33,19 @@ const NoteId = () => {
         >
           <IoIosArrowBack />
         </Link>
-        <div className="wrapper-div">
-        <div
-          onClick={editNote}
-          className='icon-wrapper'
-        >
-          <FiEdit />
-        </div>
-        <div
-          onClick={deleteNote}
-          className='icon-wrapper'
-        >
-          <RiDeleteBin6Line />
-        </div>
+        <div className='wrapper-div'>
+          <div
+            onClick={editNote}
+            className='icon-wrapper'
+          >
+            <FiEdit />
+          </div>
+          <div
+            onClick={deleteNote}
+            className='icon-wrapper'
+          >
+            <RiDeleteBin6Line />
+          </div>
         </div>
       </div>
       <div className='noteId-wrapper'>

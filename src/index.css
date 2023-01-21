@@ -75,9 +75,8 @@ body {
   align-items: center;
   border-radius: 5px;
   background-color: var(--color-bg-dark);
-
 }
-.icon-wrapper{
+.icon-wrapper {
   cursor: pointer;
 }
 .notes-header-input {
@@ -198,7 +197,7 @@ body {
 .form p {
   color: red;
 }
-.wrapper-div{
+.wrapper-div {
   display: flex;
   width: 30%;
   justify-content: space-between;

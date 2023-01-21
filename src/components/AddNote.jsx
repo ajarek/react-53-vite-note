@@ -1,33 +1,26 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import { AppContext } from '../App'
 import Form from '../components/Form'
 import { IoIosArrowBack } from 'react-icons/io'
 import { Link } from 'react-router-dom'
-import { v1 as uuidv1 } from 'uuid';
+import { v1 as uuidv1 } from 'uuid'
 const AddNote = () => {
-  const {
-    notes,
-    setNotes,
-    ValueText,
-    setValueText,
-    ValueTitle,
-    setValueTitle,
-  } = useContext(AppContext)
-   const currentDate = new Date()
-  const handleSubmit=(data)=>{
-    const newNote={
-      id:uuidv1(),
+  const { setValueText, setValueTitle } = useContext(AppContext)
+  const currentDate = new Date()
+  const handleSubmit = (data) => {
+    const newNote = {
+      id: uuidv1(),
       title: data.title,
       text: data.text,
-      date:currentDate.toLocaleString('pl-PL', {
+      date: currentDate.toLocaleString('pl-PL', {
         year: '2-digit',
         month: '2-digit',
         day: '2-digit',
-    })
+      }),
     }
-    var notes = JSON.parse(localStorage.getItem("notes") || "[]");
-    notes.push(newNote);
-    localStorage.setItem("notes", JSON.stringify(notes));
+    var notes = JSON.parse(localStorage.getItem('notes') || '[]')
+    notes.push(newNote)
+    localStorage.setItem('notes', JSON.stringify(notes))
     setValueText('')
     setValueTitle('')
   }
@@ -40,11 +33,10 @@ const AddNote = () => {
         >
           <IoIosArrowBack />
         </Link>
-       
       </div>
       <Form
-      onSubmit={handleSubmit}
-      label={'Submit note'}
+        onSubmit={handleSubmit}
+        label={'Submit note'}
       />
     </div>
   )

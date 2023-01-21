@@ -1,16 +1,16 @@
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { AppContext } from '../App'
 
 export const Form = (props) => {
- const { onSubmit, label } = props
- const {ValueTitle,ValueText}= useContext(AppContext)
+  const { onSubmit, label } = props
+  const { ValueTitle, ValueText } = useContext(AppContext)
 
   const schema = yup.object().shape({
-    title:yup.string().required() ,
-   text:yup.string().required() ,
+    title: yup.string().required(),
+    text: yup.string().required(),
   })
 
   const {
@@ -35,28 +35,26 @@ export const Form = (props) => {
       onSubmit={handleSubmit(onSubmit)}
       className={'form'}
     >
-        <input
-          autoFocus
-          type='text'
-          placeholder='Title...'
-           defaultValue={ValueTitle}
-          {...register('title')}
-          
-        />     
-      <p>{errors.title?.message}</p> 
+      <input
+        autoFocus
+        type='text'
+        placeholder='Title...'
+        defaultValue={ValueTitle}
+        {...register('title')}
+      />
+      <p>{errors.title?.message}</p>
 
       <textarea
-          type='text'
-          placeholder='Text...'
-          {...register('text')}
-           defaultValue={ValueText}
-        />
-      <p>{errors.text?.message}</p> 
-
+        type='text'
+        placeholder='Text...'
+        {...register('text')}
+        defaultValue={ValueText}
+      />
+      <p>{errors.text?.message}</p>
 
       <input
         type='submit'
-         value={label}
+        value={label}
       />
     </form>
   )
