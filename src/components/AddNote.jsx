@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState, useContext } from 'react'
+import { AppContext } from '../App'
 import Form from '../components/Form'
 import { IoIosArrowBack } from 'react-icons/io'
 import { Link } from 'react-router-dom'
 import { v1 as uuidv1 } from 'uuid';
 const AddNote = () => {
+  const {
+    notes,
+    setNotes,
+    ValueText,
+    setValueText,
+    ValueTitle,
+    setValueTitle,
+  } = useContext(AppContext)
    const currentDate = new Date()
   const handleSubmit=(data)=>{
     const newNote={
@@ -19,6 +28,8 @@ const AddNote = () => {
     var notes = JSON.parse(localStorage.getItem("notes") || "[]");
     notes.push(newNote);
     localStorage.setItem("notes", JSON.stringify(notes));
+    setValueText('')
+    setValueTitle('')
   }
   return (
     <div className='add-note'>
