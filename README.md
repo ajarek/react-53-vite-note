@@ -3,5 +3,5 @@
 #### Hooks used: useState, createContext, useContext , useEffect, useParams, useNavigate
 #### LocalStorage used
 ## Setup:
-$ npm install
-$ start: npm run dev
+* npm install
+* start: npm run dev
