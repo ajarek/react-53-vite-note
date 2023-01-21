@@ -1,7 +1,7 @@
 import React from 'react'
 import Form from '../components/Form'
 import { IoIosArrowBack } from 'react-icons/io'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { v1 as uuidv1 } from 'uuid';
 const AddNote = () => {
    const currentDate = new Date()
@@ -19,7 +19,6 @@ const AddNote = () => {
     var notes = JSON.parse(localStorage.getItem("notes") || "[]");
     notes.push(newNote);
     localStorage.setItem("notes", JSON.stringify(notes));
-    console.log(data);
   }
   return (
     <div className='add-note'>

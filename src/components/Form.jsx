@@ -16,11 +16,20 @@ export const Form = (props) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    reset,
+    formState,
+    formState: { errors, isSubmitSuccessful },
   } = useForm({
     resolver: yupResolver(schema),
   })
-
+  useEffect(() => {
+    if (formState.isSubmitSuccessful) {
+      reset({
+        title: '',
+        text: '',
+      })
+    }
+  }, [formState, reset])
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
