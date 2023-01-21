@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 :root {
-  --color-black:#000;
+  --color-black: #000;
   --color-bg-dark: #3a3a3a;
   --color-bg-black: #111111;
   --color-white: #fefefe;
   --color-primary: #ff3de9;
   --color-danger: rgb(249, 84, 84);
-  --color-yellow:#c0fc40;
-  --color-blue:#3ec1fe;
-  --color-green:#03e21d;
+  --color-yellow: #c0fc40;
+  --color-blue: #3ec1fe;
+  --color-green: #03e21d;
 }
 * {
   margin: 0;
@@ -18,6 +18,9 @@
   list-style: none;
   text-decoration: none;
   box-sizing: border-box;
+}
+#root {
+  width: 100%;
 }
 body {
   height: 100vh;
@@ -49,7 +52,7 @@ body {
   display: flex;
   justify-content: space-between;
 }
-.note-id{
+.note-id {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -72,18 +75,22 @@ body {
   align-items: center;
   border-radius: 5px;
   background-color: var(--color-bg-dark);
+
 }
-.notes-header-input{
+.icon-wrapper{
+  cursor: pointer;
+}
+.notes-header-input {
   width: 120px;
 }
-.notes-header-input input{
-width: 100%;
-height: 20px;
-padding: 0.5rem;
-background-color: transparent;
-color: var(--color-white);
-border:none ;
-border-bottom: 1px dashed  var(--color-white);
+.notes-header-input input {
+  width: 100%;
+  height: 20px;
+  padding: 0.5rem;
+  background-color: transparent;
+  color: var(--color-white);
+  border: none;
+  border-bottom: 1px dashed var(--color-white);
 }
 .notes-body {
   display: grid;
@@ -91,12 +98,11 @@ border-bottom: 1px dashed  var(--color-white);
   gap: 0.5rem;
 }
 .card-note {
-  
   background: var(--color-primary);
   padding: 0.5rem;
   display: flex;
   flex-direction: column;
-  
+
   cursor: pointer;
   transition: all 300ms ease;
   color: var(--color-bg-black);
@@ -123,13 +129,13 @@ border-bottom: 1px dashed  var(--color-white);
 .card-note:nth-child(7) {
   grid-column: 1/3;
   background-color: var(--color-danger);
-} 
+}
 
- .card-note p {
+.card-note p {
   font-size: 0.8rem;
-} 
-.btn-add{
-  position:absolute;
+}
+.btn-add {
+  position: absolute;
   right: 10%;
   top: 90%;
   width: 40px;
@@ -142,13 +148,13 @@ border-bottom: 1px dashed  var(--color-white);
   font-size: 1.5rem;
   cursor: pointer;
   border: 0;
-  box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
   color: var(--color-white);
   transition: all 0.3s ease-in-out;
 }
-.btn-add:hover{
-background-color: var(--color-bg-black);
-transform: scale(1.1);
+.btn-add:hover {
+  background-color: var(--color-bg-black);
+  transform: scale(1.1);
 }
 
 .form {
@@ -159,7 +165,8 @@ transform: scale(1.1);
   align-items: flex-start;
   justify-content: space-evenly;
 }
-.form input,.form textarea {
+.form input,
+.form textarea {
   width: 100%;
   height: 48px;
   border-radius: 8px;
@@ -170,10 +177,9 @@ transform: scale(1.1);
   margin-bottom: 1rem;
   font-family: 'Montserrat', sans-serif;
 }
-.form textarea{
+.form textarea {
   height: 200px;
   padding: 1rem 0.5rem;
- 
 }
 .form input[type='submit'] {
   background: var(--color-green);
@@ -185,10 +191,21 @@ transform: scale(1.1);
   margin-top: 1rem;
   transition: all 0.3s ease-in-out;
 }
-.form input[type='submit']:hover{
- background-color: #04b218;
- font-size: 1.2rem;
+.form input[type='submit']:hover {
+  background-color: #04b218;
+  font-size: 1.2rem;
 }
 .form p {
   color: red;
+}
+.wrapper-div{
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+}
+@media (max-width: 420px) {
+  .App {
+    width: 100%;
+    min-height: 100vh;
+  }
 }
